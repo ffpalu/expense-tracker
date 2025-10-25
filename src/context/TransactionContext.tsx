@@ -7,7 +7,7 @@ import { generateId, getCurrentDate } from "../utils/formatters";
 
 interface TransactionContextType{
 	transactions: Transaction[];
-	addTransaction: (transaction: Omit<Transaction, 'id' | 'CreatedAt'>) => void;
+	addTransaction: (transaction: Omit<Transaction, 'id' | 'createdAt'>) => void;
 	updateTransaction: (id:string, transaction:Partial<Transaction>) => void;
 	deleteTransaction: (id:string) => void;
 }
