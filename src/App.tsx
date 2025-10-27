@@ -1,59 +1,86 @@
 import { useTransaction } from "./context/TransactionContext"
 import TransactionForm from "./components/transactions/TransactionForm";
+import TransactionList from "./components/transactions/TransactionList";
 import { useState } from "react";
+import { useFilters } from "./hooks/useFilters";
+import TransactionFilters from "./components/transactions/TransactionFilters";
 
 function App() {
 
-	const { transactions, addTransaction } = useTransaction();
+	const { transactions, addTransaction, deleteTransaction } = useTransaction();
 	const [showForm, setShowForm] = useState(false);
 
+	const {
+		typeFilter,
+		categoryFilter,
+		dateFromFilter,
+		dateToFilter,
+		searchTerm,
+		filteredTransactions,
+		setTypeFilter,
+		setCategoryFilter,
+		setDateFromFilter,
+		setDateToFilter,
+		setSearchTerm,
+		resetFilters
+	} = useFilters(transactions);
+
   return (
-		<div className="min-h-screen bg-gray-50 flex p-8">
-			<div className="max-w-2xl mx-auto">
-				{showForm && (
-					<TransactionForm
-						onSubmit={(data) => {
-							addTransaction(data);
-							alert('Transazione salvata!');
-							setShowForm(false)
-						}}
-						onCancel={() => setShowForm(false)}
-					/>
-				)}
+    <div className="min-h-screen bg-gray-50 p-8">
+       <div className="max-w-6xl mx-auto">
+        <div className="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">💰 Budget Tracker</h1>
+            <p className="text-gray-600 mt-1">
+              {filteredTransactions.length} di {transactions.length} transazioni
+            </p>
+          </div>
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors shadow-sm"
+          >
+            {showForm ? '❌ Chiudi Form' : '➕ Nuova Transazione'}
+          </button>
+        </div>
 
+        {showForm && (
+          <div className="mb-6">
+            <TransactionForm
+              onSubmit={(data) => {
+                addTransaction(data);
+                setShowForm(false);
+              }}
+              onCancel={() => setShowForm(false)}
+            />
+          </div>
+        )}
 
-				{!showForm && (
-					<div className="bg-white p-8 rounded-lg shadow">
-						<h2 className="text-2xl font-bold mb-4">Transazioni Salvate: {transactions.length}</h2>
-						<button
-							onClick={() => setShowForm(true)}
-							className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-						>
-							➕ Nuova Transazione
-						</button>
+				<TransactionFilters
+					typeFilter={typeFilter}
+					categoryFilter={categoryFilter}
+					dateFromFilter={dateFromFilter}
+					dateToFilter={dateToFilter}
+					searchTerm={searchTerm}
+          onTypeChange={setTypeFilter}
+          onCategoryChange={setCategoryFilter}
+          onDateFromChange={setDateFromFilter}
+          onDateToChange={setDateToFilter}
+          onSearchChange={setSearchTerm}
+          onReset={resetFilters}
+				/>
 
-						{transactions.length > 0 && (
-							<div className="mt-4 space-y-2">
-								{transactions.slice(-5).reverse().map(t => (
-									<div key={t.id} className="p-3 bg-gray-50 rounded">
-										<p className="font-semibold">{t.description}</p>
-										<p className="text-sm text-gray-600">
-											{t.type === 'income' ?  '📈' : '📉'} € {t.amount} - {t.category}
-										</p>
-									</div>
-								))}	
-							</div>
-						)}
+        <TransactionList
+          transactions={transactions}
+          onEdit={(transaction) => {
+            console.log('Modifica:', transaction);
+            // TODO: Futura implementazione...
+          }}
+          onDelete={deleteTransaction}
+        />
+      </div>
+    </div>
+  );
 
-					</div>
-				)}
-
-
-
-
-			</div>
-		</div>
-	)
 }
 
 export default App
