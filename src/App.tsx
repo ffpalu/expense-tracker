@@ -85,7 +85,7 @@ function App() {
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
 				{(showForm || editingTransaction) && (
-					<div className="mb-6">
+					<div className="mb-6 animate-slideIn">
 						<TransactionForm
 							initialData={editingTransaction || undefined}
 							onSubmit={(data) =>{

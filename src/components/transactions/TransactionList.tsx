@@ -30,13 +30,21 @@ function TransactionList ({transactions, onEdit, onDelete}: TransactionListProps
 
 	return (
 		<div className="space-y-3">
-			{sortedTransactions.map((transaction) => (
-				<TransactionItem
+			{sortedTransactions.map((transaction, index) => (
+				<div
 					key={transaction.id}
-					transaction={transaction}
-					onEdit={onEdit}
-					onDelete={onDelete}
-					/>
+					style={{
+						animationDelay: `${index * 0.5}s`,
+						animationFillMode: 'both'
+					}}	
+					className="animate-fadeIn"
+				>
+						<TransactionItem
+							transaction={transaction}
+							onEdit={onEdit}
+							onDelete={onDelete}
+							/>
+				</div>
 			))}
 		</div>
 	)

@@ -14,7 +14,7 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 
 
 	return (
-		<div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+		<div className="bg-white border border-gray-200 rounded-lg p-4 hover-lift transition-all animate-fadeIn">
 			<div className="flex items-start justify-between">
 				<div className="flex items-start gap-3 flex-1">
 					<div
