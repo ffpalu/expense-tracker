@@ -10,7 +10,7 @@ function Summary() {
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-			<div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg p-6 text-white hover-lift animate-scaleIn">
+			<div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg p-4 sm:p-6 text-white hover-lift animate-scaleIn">
 				<div className="flex items-center justify-between mb-2">
 					<h3 className="text-sm font-medium opacity-90">Saldo Totale</h3>
 					<div className="text-3xl">💰</div>
@@ -23,7 +23,7 @@ function Summary() {
 				</p>
 			</div>
 
-			<div className="bg-gradient-to-br from-green-500 to-green-700 rounded-lg shadow-lg p-6 text-white hover-lift animate-scaleIn">
+			<div className="bg-gradient-to-br from-green-500 to-green-700 rounded-lg shadow-lg p-4 sm:p-6 text-white hover-lift animate-scaleIn">
 				<div className="flex items-center justify-between mb-2">
 					<h3 className="text-sm font-medium opacity-90">Totale Entrate</h3>
 					<div className="text-3xl">📈</div>
@@ -36,7 +36,7 @@ function Summary() {
 				</p>
 			</div>
 
-			<div className="bg-gradient-to-br from-red-500 to-red-700 rounded-lg shadow-lg p-6 text-white hover-lift animate-scaleIn">
+			<div className="bg-gradient-to-br from-red-500 to-red-700 rounded-lg shadow-lg p-4 sm:p-6 text-white hover-lift animate-scaleIn">
 				<div className="flex items-center justify-between mb-2">
 					<h3 className="text-sm font-medium opacity-90">Totale Uscite</h3>
 					<div className="text-3xl">📉</div>
