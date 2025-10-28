@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { TransactionType } from "../../types/transaction";
+import type { Transaction, TransactionType } from "../../types/transaction";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../../utils/constants";
 
 
@@ -12,14 +12,15 @@ interface TransactionFormProps {
 		date: string;
 	}) => void;
 	onCancel: () => void;
+	initialData?: Transaction
 }
 
-function TransactionForm ({onSubmit, onCancel}: TransactionFormProps) {
-	const [type, setType] = useState<TransactionType> ('expense');
-	const [amount, setAmount] = useState('');
-	const [category, setCategory] = useState('');
-	const [description, setDescription] = useState('')
-	const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+function TransactionForm ({onSubmit, onCancel, initialData}: TransactionFormProps) {
+	const [type, setType] = useState<TransactionType> (initialData?.type || 'expense');
+	const [amount, setAmount] = useState(initialData?.amount.toString() || '');
+	const [category, setCategory] = useState(initialData?.category || '');
+	const [description, setDescription] = useState(initialData?.description || '')
+	const [date, setDate] = useState(initialData?.date || new Date().toISOString().split('T')[0]);
 
 	const handleSubmit = (e:React.FormEvent) => {
 		e.preventDefault();
@@ -58,7 +59,7 @@ function TransactionForm ({onSubmit, onCancel}: TransactionFormProps) {
 	return (
 		<div className="bg-white rounded-lg p-6">
 			<h2 className="text-2xl font-bold text-gray-900 mb-6">
-				Nuova Transazione
+				{initialData ? '✏️ Modifica Transazione' : '➕ Nuova Transazione'}
 			</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="mb-6">
@@ -191,7 +192,7 @@ function TransactionForm ({onSubmit, onCancel}: TransactionFormProps) {
 						type="submit"
 						className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
 					>
-						💾 Salva Transazione
+						{initialData ? '💾 Aggiorna Transazione' : '💾 Salva Transazione'} 
 					</button>
 
 					<button

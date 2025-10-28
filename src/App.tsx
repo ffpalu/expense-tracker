@@ -7,11 +7,15 @@ import TransactionFilters from "./components/transactions/TransactionFilters";
 import Summary from "./components/dashboard/Summary";
 import RecentTransactions from "./components/dashboard/RecentTransactions";
 import Charts from "./components/dashboard/Charts";
+import type { Transaction } from "./types/transaction";
+
+
 
 function App() {
 
-	const { transactions, addTransaction, deleteTransaction } = useTransaction();
+	const { transactions, addTransaction, deleteTransaction, updateTransaction } = useTransaction();
 	const [showForm, setShowForm] = useState(false);
+	const [editingTransaction, setEditingTransaction] = useState<Transaction | null> (null);
 	const [activeTab, setActiveTab] = useState<'dashboard' | 'transactions'>('dashboard');
 
 	const {
@@ -40,10 +44,13 @@ function App() {
 							<p className=" text-gray-600 mt-1"> Monitora le tue finanze personali</p>
 						</div>
 						<button
-							onClick={() => setShowForm(!showForm)}
+							onClick={() => {
+								setEditingTransaction(null)
+								setShowForm(!showForm);
+							}}
 							className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors shadow-sm"
 						>
-							{showForm ? '❌ Chiudi' : '➕ Nuova Transazione'}
+							{(showForm || editingTransaction) ? '❌ Chiudi' : '➕ Nuova Transazione'}
 						</button>
 					</div>
 				</div>
@@ -77,14 +84,24 @@ function App() {
 			</div>
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-				{showForm &&(
+				{(showForm || editingTransaction) && (
 					<div className="mb-6">
 						<TransactionForm
+							initialData={editingTransaction || undefined}
 							onSubmit={(data) =>{
-								addTransaction(data);
+								if(editingTransaction) {
+									updateTransaction(editingTransaction.id, data);
+									setEditingTransaction(null);
+								}
+								else{
+									addTransaction(data)
+								}
 								setShowForm(false);
 							}}
-							onCancel={() => setShowForm(false)}
+							onCancel={() => {
+								setShowForm(false);
+								setEditingTransaction(null);
+							}}
 						/>
 					</div>
 				)}
@@ -117,8 +134,10 @@ function App() {
 						<TransactionList
 							transactions={filteredTransactions}
 							onEdit={(transaction) => {
-								console.log('Modifica:', transaction);
-								// TODO: Futura implementazione...
+								setEditingTransaction(transaction);
+								setShowForm(false);
+
+								window.scrollTo({top:0, behavior: 'smooth'})
 							}}
 							onDelete={deleteTransaction}
 						/>
