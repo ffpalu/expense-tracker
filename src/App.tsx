@@ -6,6 +6,7 @@ import { useFilters } from "./hooks/useFilters";
 import TransactionFilters from "./components/transactions/TransactionFilters";
 import Summary from "./components/dashboard/Summary";
 import RecentTransactions from "./components/dashboard/RecentTransactions";
+import Charts from "./components/dashboard/Charts";
 
 function App() {
 
@@ -93,6 +94,9 @@ function App() {
 					<>
 						<Summary />
 						<RecentTransactions limit={10} />
+						<div className="mt-6">
+							<Charts></Charts>
+						</div>
 					</>
 				) : (
 					<>
