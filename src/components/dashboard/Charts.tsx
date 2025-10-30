@@ -119,12 +119,12 @@ function Charts() {
 
   if (transactions.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 p-12 text-center">
         <div className="text-6xl mb-4">📊</div>
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
           Nessun dato da visualizzare
         </h3>
-        <p className="text-gray-500">
+        <p className="text-gray-500 dark:text-gray-400">
           Aggiungi delle transazioni per vedere i grafici!
         </p>
       </div>
@@ -133,12 +133,12 @@ function Charts() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">📈 Statistiche</h2>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">📈 Statistiche</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* GRAFICO A TORTA */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             🍕 Spese per Categoria
           </h3>
           {pieChartData ? (
@@ -165,13 +165,13 @@ function Charts() {
               />
             </div>
           ) : (
-            <p className="text-gray-500 text-center py-20">Nessuna spesa da mostrare</p>
+            <p className="text-gray-500 dark:text-gray-400 text-center py-20">Nessuna spesa da mostrare</p>
           )}
         </div>
 
         {/* GRAFICO A BARRE */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             📊 Entrate vs Uscite (Ultimi 6 Mesi)
           </h3>
           <div className="h-80">
@@ -209,8 +209,8 @@ function Charts() {
       </div>
 
       {/* GRAFICO A LINEA */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 p-6">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
           📈 Trend del Saldo
         </h3>
         <div className="h-80">

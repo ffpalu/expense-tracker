@@ -84,3 +84,7 @@
 	transform: translateY(-4px);
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
+.dark .hover-lift:hover {
+	box-shadow:  0 10px 25px rgba(0, 0, 0, 0.3);
+}

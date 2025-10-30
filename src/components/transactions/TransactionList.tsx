@@ -14,9 +14,9 @@ function TransactionList ({transactions, onEdit, onDelete}: TransactionListProps
 
 	if (transactions.length === 0) {
 		return (
-			<div className="bg-white rounded-lg border-2 border-dashed border-gray-300 p-8 sm:p-12 text-center animate-fadeIn">
+			<div className="bg-white dark:bg-gray-600 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 p-8 sm:p-12 text-center animate-fadeIn">
 				<div className="text-5xl sm:text-6xl mb-4 animate-bounce">📭</div>
-				<h3 className="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
+				<h3 className="text-lg sm:text-xl font-semibold text-gray-700 dark:text-gray-400 mb-2">
 					Nessuna transazione
 				</h3>
 				<p className="text-sm sm:text-base text-gray-500">

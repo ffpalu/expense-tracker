@@ -8,6 +8,7 @@ import Summary from "./components/dashboard/Summary";
 import RecentTransactions from "./components/dashboard/RecentTransactions";
 import Charts from "./components/dashboard/Charts";
 import type { Transaction } from "./types/transaction";
+import ThemeToggle from "./components/common/ThemeToggle";
 
 
 
@@ -34,37 +35,40 @@ function App() {
 	} = useFilters(transactions);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
 
-			<header className="bg-white shadow-sm border-b border-gray-200 mb-6 sticky top-0 z-10">
+			<header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 mb-6 sticky top-0 z-10">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 					<div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
 						<div>
-							<h1 className="text-2xl sm:text-3xl font-bold text-gray-900">💰 Budget Tracker</h1>
-							<p className="text-sm sm:text-base text-gray-600 mt-1">Monitora le tue finanze personali</p>
+							<h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">💰 Budget Tracker</h1>
+							<p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">Monitora le tue finanze personali</p>
 						</div>
-						<button
-							onClick={() => {
-								setEditingTransaction(null);
-								setShowForm(!showForm);
-							}}
-							className="w-full sm:w-auto bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors shadow-sm active:scale-95"
-						>
-							{(showForm || editingTransaction) ? '❌ Chiudi' : '➕ Nuova'}
-						</button>
+						<div className="flex items-center gap-3 w-full sm:w-auto">
+							<ThemeToggle />
+							<button
+								onClick={() => {
+									setEditingTransaction(null);
+									setShowForm(!showForm);
+								}}
+								className="flex-1 sm:flex-initial bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-700 font-semibold transition-colors shadow-sm active:scale-95"
+							>
+								{(showForm || editingTransaction) ? '❌ Chiudi' : '➕ Nuova'}
+							</button>
+						</div>
 					</div>
 				</div>
 			</header>
 
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-				<div className="flex gap-2 border-b border-gray-200">
+				<div className="flex gap-2 border-b border-gray-200 dark:border-gray-700">
 					<button 
 						onClick={() => setActiveTab('dashboard')}
 						className={`px-6 py-3 font-semibold transition-colors border-b-2 ${
 							activeTab ==='dashboard'
-								? 'border-blue-600 text-blue-600'
-								: 'border-transparent text-gray-600 hover:text-gray-900'
+								? 'border-blue-600 text-blue-600 dark:text-blue-400'
+								: 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
 							
 						}`}
 					>
@@ -74,8 +78,8 @@ function App() {
 					onClick={() => setActiveTab('transactions')}
 					className={`px-6 py-3 font-semibold transition-colors border-b-2 ${
 							activeTab === 'transactions'
-								? 'border-blue-600 text-blue-600'
-								: 'border-transparent text-gray-600 hover:text-gray-900'
+								? 'border-blue-600 text-blue-600 dark:text-blue-400'
+								: 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
 						}`}
 					>
 						💳 Transazioni

@@ -14,7 +14,7 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 
 
 	return (
-		<div className="bg-white border border-gray-200 rounded-lg p-4 hover-lift transition-all animate-fadeIn">
+		<div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover-lift transition-all animate-fadeIn">
 			<div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
 				{/* SINISTRA: Info transazione */}
 				<div className="flex items-start gap-3 flex-1">
@@ -28,10 +28,10 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 
 					{/* Dettagli */}
 					<div className="flex-1 min-w-0">
-						<h3 className="font-semibold text-gray-900 text-base sm:text-lg truncate">
+						<h3 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg truncate">
 							{transaction.description}
 						</h3>
-						<p className="text-xs sm:text-sm text-gray-500 mt-1">
+						<p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
 							{category?.name || transaction.category} • {formatDate(transaction.date)}
 						</p>
 					</div>
@@ -40,7 +40,7 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 				{/* DESTRA: Importo e azioni */}
 				<div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
 					{/* Importo */}
-					<div className={`text-lg sm:text-xl font-bold ${isIncome ? 'text-green-600' : 'text-red-600'}`}>
+					<div className={`text-lg sm:text-xl font-bold ${isIncome ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
 						{isIncome ? '+' : '-'} {formatCurrency(transaction.amount)}
 					</div>
 
@@ -48,7 +48,7 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 					<div className="flex gap-2 flex-shrink-0">
 						<button
 							onClick={() => onEdit(transaction)}
-							className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors active:scale-95"
+							className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors active:scale-95"
 							title="Modifica"
 						>
 							✏️
@@ -59,7 +59,7 @@ function TransactionItem({transaction, onEdit, onDelete}: TransactionItemProps) 
 									onDelete(transaction.id);
 								}
 							}}
-							className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors active:scale-95"
+							className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors active:scale-95"
 							title="Elimina"
 						>
 							🗑️

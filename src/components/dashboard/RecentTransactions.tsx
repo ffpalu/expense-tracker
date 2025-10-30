@@ -17,23 +17,23 @@ function RecentTransactions ( { limit = 5 }: RecentTransactionsProps) {
 
 	if(transactions.length === 0) {
 		return (
-			<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+			<div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8 text-center">
 				<div className="text-5xl mb-3">📭</div>
-				<p className="text-gray-600">Nessuna transazione recente</p>
+				<p className="text-gray-600 dark:text-gray-400">Nessuna transazione recente</p>
 			</div>
 		);
 	}
 
 
 	return (
-		<div className="bg-white rounded-lg shadow-sm border border-gray-200">
-			<div className="p-6 border-b border-gray-200">
-				<h2 className="text-xs font-bold text-gray-900">
+		<div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+			<div className="p-6 border-b border-gray-200 dark:border-gray-700">
+				<h2 className="text-xs font-bold text-gray-900 dark:text-white">
 					📋 Ultime Transazioni
 				</h2>
 			</div>
 
-			<div className="divide-y divide-gray-200">
+			<div className="divide-y divide-gray-200 dark:divide-gray-700">
 				{recentTransactions.map((transaction) => {
 					const category = CATEGORY_MAP[transaction.category];
 					const isIncome = transaction.type === 'income';
@@ -42,7 +42,7 @@ function RecentTransactions ( { limit = 5 }: RecentTransactionsProps) {
 					return (
 						<div 
 							key={transaction.id}
-							className="p-4 hover:bg-gray-50 transition-colors"
+							className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 						>
 							<div className="flex items-center justify-between">
 								<div className="flex items-center gap-3">
@@ -55,10 +55,10 @@ function RecentTransactions ( { limit = 5 }: RecentTransactionsProps) {
 
 
 									<div>
-										<p className="font-semibold text-gray-900">
+										<p className="font-semibold text-gray-900 dark:text-white">
 											{transaction.description}
 										</p>
-										<p className="text-sm text-gray-500">
+										<p className="text-sm text-gray-500 dark:text-gray-400">
 											{category?.name} • {formatDate(transaction.date)}
 										</p>
 									</div>
@@ -67,7 +67,7 @@ function RecentTransactions ( { limit = 5 }: RecentTransactionsProps) {
 
 								<div
 									className={`text-lg font-bold ${
-											isIncome? 'text-green-600' : 'text-red-600'
+											isIncome? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
 										}`}
 								>
 									{isIncome ? '+' : '-'} {formatCurrency(transaction.amount)}
