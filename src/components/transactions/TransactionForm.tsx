@@ -57,7 +57,7 @@ function TransactionForm ({onSubmit, onCancel, initialData}: TransactionFormProp
 	}
 
 	return (
-		<div className="bg-white dark:bg-gray-800\ rounded-lg p-6">
+		<div className="bg-white dark:bg-gray-800 rounded-lg p-6">
 			<h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
 				{initialData ? '✏️ Modifica Transazione' : '➕ Nuova Transazione'}
 			</h2>
