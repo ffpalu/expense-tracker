@@ -100,7 +100,7 @@
 
 1. **Clone il repository**
 ```bash
-git clone https://github.com/tuo-username/budget-tracker.git
+git clone https://github.com/ffpalu/expense-tracker.git
 cd budget-tracker
 ```
 
