@@ -436,42 +436,12 @@ I contributi sono benvenuti! Per contribuire:
 
 ---
 
-## 📄 Licenza
-
-Questo progetto è distribuito sotto licenza **MIT**. Vedi il file [LICENSE](LICENSE) per maggiori dettagli.
-
-```
-MIT License
-
-Copyright (c) 2024 [Il Tuo Nome]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
 ## 👨‍💻 Autore
 
 **[Il Tuo Nome]**
-- GitHub: [@tuo-username](https://github.com/tuo-username)
-- LinkedIn: [Il Tuo Nome](https://linkedin.com/in/tuo-profilo)
-- Email: tua.email@example.com
+- GitHub: [@ffpalu](https://github.com/ffpalu)
+- LinkedIn: [Federico Palumbo](https://linkedin.com/in/federico-francesco-palumbo)
+- Email: m.palumbo01@gmail.com
 
 ---
 
@@ -498,7 +468,7 @@ Se questo progetto ti è stato utile, considera di:
 
 ## 📞 Contatti
 
-Hai domande o suggerimenti? Apri una [issue](https://github.com/tuo-username/budget-tracker/issues) o contattami direttamente!
+Hai domande o suggerimenti? Apri una [issue](https://github.com/ffpalu/budget-tracker/issues) o contattami direttamente!
 
 ---
 
