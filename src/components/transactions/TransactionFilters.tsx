@@ -1,5 +1,6 @@
-import type { TransactionType } from "../../types/transaction";
+import type { Transaction, TransactionType } from "../../types/transaction";
 import { ALL_CATEGORIES } from "../../utils/constants";
+import ExportButton from "../common/ExportButton";
 
 
 interface TransactionFiltersProps {
@@ -14,6 +15,7 @@ interface TransactionFiltersProps {
 	onDateToChange: (date: string) => void;
 	onSearchChange: (term: string) => void;
 	onReset: () => void;
+	filteredTransactions?:Transaction[];
 }
 
 function TransactionFilters ({
@@ -27,18 +29,24 @@ function TransactionFilters ({
 	onDateFromChange,
 	onDateToChange,
 	onSearchChange,
-	onReset
+	onReset,
+	filteredTransactions
 }: TransactionFiltersProps) {
 	return (
 		<div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
 			<div className="flex justify-between items-center mb-4">
 				<h3 className="text-lg font-semibold text-gray-900 dark:text-white">🔍 Filtri</h3>
-				<button
-					onClick={onReset}
-					className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
-				>
-					↺ Reset Filtri
-				</button>
+				<div className="flex items-center gap-2">
+					{filteredTransactions && (
+						<ExportButton transactions={filteredTransactions} />
+					)}
+					<button
+						onClick={onReset}
+						className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+					>
+						↺ Reset Filtri
+					</button>
+				</div>
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

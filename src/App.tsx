@@ -9,7 +9,7 @@ import RecentTransactions from "./components/dashboard/RecentTransactions";
 import Charts from "./components/dashboard/Charts";
 import type { Transaction } from "./types/transaction";
 import ThemeToggle from "./components/common/ThemeToggle";
-
+import ExportButton from "./components/common/ExportButton";
 
 
 function App() {
@@ -46,6 +46,7 @@ function App() {
 						</div>
 						<div className="flex items-center gap-3 w-full sm:w-auto">
 							<ThemeToggle />
+							<ExportButton transactions={transactions} />
 							<button
 								onClick={() => {
 									setEditingTransaction(null);
@@ -133,6 +134,7 @@ function App() {
 							onDateToChange={setDateToFilter}
 							onSearchChange={setSearchTerm}
 							onReset={resetFilters}
+							filteredTransactions={filteredTransactions}
 						/>
 
 						<TransactionList
