@@ -436,7 +436,7 @@ I contributi sono benvenuti! Per contribuire:
 
 ## 👨‍💻 Autore
 
-**[Il Tuo Nome]**
+**Federico Palumbo**
 - GitHub: [@ffpalu](https://github.com/ffpalu)
 - LinkedIn: [Federico Palumbo](https://linkedin.com/in/federico-francesco-palumbo)
 - Email: m.palumbo01@gmail.com
