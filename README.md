@@ -6,8 +6,6 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC.svg)](https://tailwindcss.com/)
 [![Chart.js](https://img.shields.io/badge/Chart.js-4.4-FF6384.svg)](https://www.chartjs.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
 ## 📸 Screenshot
 
 ### Light Mode
